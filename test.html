@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			#wrapper {
+				padding: 3rem 0;
+			}
+			.card-holder {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				grid-column-gap: 3rem;
+				grid-row-gap: 3rem;
+				padding: 0 5rem;
+			}
+			.card {
+				min-height: 30vh;
+				box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+				text-align: center;
+				border-radius: 30px;
+				overflow: hidden;
+			}
+			.card-img {
+				width: 100%;
+				cursor: pointer;
+				position: relative;
+			}
+			.card-img img {
+				height: 320px;
+				width: 100%;
+				object-fit: cover;
+				display: block;
+				transition: all 0.5s ease-in-out;
+			}
+			.content {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				transform: translateY(-100%);
+				transition: all 0.3s;
+				background: rgba(255, 255, 255, 0.6);
+			}
+
+			.content h2,
+			.content p {
+				opacity: 0;
+				transition: all 0.3s;
+				color: #000;
+			}
+
+			.card-img:hover .content {
+				transform: none;
+			}
+			.card-img:hover img {
+				transform: scale(0.93);
+			}
+			.card-img:hover h2,
+			.card-img:hover p {
+				opacity: 1;
+				transition-delay: 0.2s;
+			}
+
+			.card-description {
+				margin-top: -35px;
+				position: relative;
+			}
+			.player {
+				display: flex;
+				flex-direction: inherit;
+				justify-content: space-evenly;
+				align-items: center;
+				padding: 0 2rem;
+			}
+			.player img {
+				width: 65px;
+				border-radius: 50%;
+				border: 2px solid #fff;
+				box-shadow: 0 0 15px #100e0e;
+			}
+			.button {
+				padding: 1rem 0 2rem;
+			}
+			.button button {
+				background-color: rgb(243, 54, 92);
+				border-radius: 10px;
+				padding: 0.5rem 1rem;
+				cursor: pointer;
+				color: #fff;
+				box-shadow: 0 0 10px #777;
+				border: 2px solid #fff;
+				outline: none;
+			}
+			audio {
+				width: 190px;
+				height: 30px;
+				-moz-box-shadow: 0 0 10px 0px #777;
+				-webkit-box-shadow: 0 0 10px 0px #777;
+				box-shadow: 0 0 10px 0px #777;
+				-moz-border-radius: 50px;
+				-webkit-border-radius: 50px;
+				border-radius: 50px;
+				margin-left: 15px;
+			}
+			audio:hover,
+			audio:focus,
+			audio:active {
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrapper">
+			<section class="card-holder">
+				<section class="card">
+					<section class="card-img">
+						<img
+							src="http://e-cdn-images.deezer.com/images/cover/b9745e77d4f4ddda418f4855d051ad8b/500x500-000000-80-0-0.jpg"
+							alt="Fever"
+						/>
+						<div class="content">
+							<h2>1</h2>
+							<p>Tears Don't Fall</p>
+						</div>
+					</section>
+					<section class="card-description">
+						<section class="player">
+							<img src="http://api.deezer.com/artist/327/image" alt="BFMV" />
+							<!-- <button>▷ Listen 30 seconds</button> -->
+							<audio
+								controls
+								src="http://cdn-preview-c.deezer.com/stream/c-cdeedb9c5e12f01c5e223554bf990617-4.mp3"
+							></audio>
+						</section>
+					</section>
+					<section class="button">
+						<button>Read Lyrics</button>
+					</section>
+				</section>
+				<section class="card">
+					<section class="card-img">
+						<img
+							src="http://e-cdn-images.deezer.com/images/cover/b9745e77d4f4ddda418f4855d051ad8b/500x500-000000-80-0-0.jpg"
+							alt="Fever"
+						/>
+						<div class="content">
+							<h2>BFMV</h2>
+							<p>Tears Don't Fall</p>
+						</div>
+					</section>
+					<section class="card-description">
+						<section class="player">
+							<img src="http://api.deezer.com/artist/327/image" alt="BFMV" />
+							<!-- <button>▷ Listen 30 seconds</button> -->
+							<audio
+								controls
+								src="http://cdn-preview-c.deezer.com/stream/c-cdeedb9c5e12f01c5e223554bf990617-4.mp3"
+							></audio>
+						</section>
+					</section>
+					<section class="button">
+						<button>Read Lyrics</button>
+					</section>
+				</section>
+				<section class="card">
+					<section class="card-img">
+						<img
+							src="http://e-cdn-images.deezer.com/images/cover/b9745e77d4f4ddda418f4855d051ad8b/500x500-000000-80-0-0.jpg"
+							alt="Fever"
+						/>
+						<div class="content">
+							<h2>BFMV</h2>
+							<p>Tears Don't Fall</p>
+						</div>
+					</section>
+					<section class="card-description">
+						<section class="player">
+							<img src="http://api.deezer.com/artist/327/image" alt="BFMV" />
+							<!-- <button>▷ Listen 30 seconds</button> -->
+							<audio
+								controls
+								src="http://cdn-preview-c.deezer.com/stream/c-cdeedb9c5e12f01c5e223554bf990617-4.mp3"
+							></audio>
+						</section>
+					</section>
+					<section class="button">
+						<button>Read Lyrics</button>
+					</section>
+				</section>
+			</section>
+		</section>
+	</body>
+</html>
