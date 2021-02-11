@@ -4,9 +4,57 @@
 	box-sizing: border-box;
 }
 #wrapper {
-	padding: 3rem 10rem;
+	padding: 0 10rem;
 	font-family: "Roboto", sans-serif;
 }
+a {
+	color: #000;
+	text-decoration: none;
+}
+/* Nav Begins */
+header {
+	overflow: hidden;
+	padding: 0 1.5rem 2rem;
+}
+nav {
+	padding: 3rem 5rem;
+	border: none;
+	text-align: center;
+}
+.logo {
+	font-family: "Dancing Script", cursive;
+}
+.logo h1 {
+	font-size: 2.5rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+}
+.search {
+	overflow: hidden;
+}
+.search input[type="text"]:focus,
+.search button:focus {
+	outline: none;
+}
+.search input {
+	width: 30%;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 0px;
+}
+.search button {
+	color: #ffffff;
+	background: #656565;
+	font-size: 1.2rem;
+	border: none;
+	padding: 0.97rem 2rem 0.7rem;
+	cursor: pointer;
+	border-radius: 0;
+}
+
+/* Nav Ends */
+
+/* Suggested Begins */
 .card-holder {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,6 +166,34 @@ audio:focus,
 audio:active {
 	outline: none;
 }
+/* Suggested Ends */
+
+/* Lyrics Begins */
+.lyrics {
+	text-align: center !important;
+	font-size: 1.2rem;
+}
+.lyrics h1 {
+	margin-bottom: 2rem;
+}
+.lyrics pre {
+	font-family: "Roboto", sans-serif !important;
+	margin-bottom: 3rem;
+}
+/* Lyrics Ends */
+
+/* Footer Begins */
+.footer {
+	padding: 1rem 0;
+	background-color: #f3f3f3;
+}
+.footer p {
+	text-align: center;
+}
+
+/* Footer Ends */
+
+/* Media Query Begins */
 @media screen and (max-width: 768px) {
 	#wrapper {
 		padding: 0px 1.5rem;
@@ -125,4 +201,18 @@ audio:active {
 	.card-holder {
 		padding: 0px 1.5rem;
 	}
+	nav {
+		padding: 1rem;
+	}
+	.search input {
+		width: 80%;
+		font-size: 1rem;
+		border-radius: 0.4rem 0 0 0.4rem;
+	}
+	.search button {
+		font-size: 1rem;
+		padding: 0.5rem;
+		border-radius: 0 0.4rem 0.4rem 0;
+	}
 }
+/* Media Query Ends */

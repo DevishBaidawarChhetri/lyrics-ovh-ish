@@ -1,6 +1,7 @@
 const defaultState = {
 	suggested: [],
 	searched: [],
+	readLyrics: [],
 };
 
 const lyricsReducer = (state = defaultState, action) => {
@@ -10,6 +11,11 @@ const lyricsReducer = (state = defaultState, action) => {
 				...state,
 				suggested: action.payload.suggested,
 				searched: action.payload.searched,
+			};
+		case "FETCH_LYRICS":
+			return {
+				...state,
+				readLyrics: action.payload.readLyrics,
 			};
 		default:
 			return { ...state };
