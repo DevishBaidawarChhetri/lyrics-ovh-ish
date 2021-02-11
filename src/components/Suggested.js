@@ -10,17 +10,11 @@ const Suggested = () => {
 		dispatch(loadSuggested());
 	}, [dispatch]);
 
-	const readLyrics = (artist, song) => {
-		// console.log(artist, song);
-		dispatch(loadLyrics(artist, song));
-	};
-
 	// Get Data from Store
 	const { suggested } = useSelector((state) => state.lyricsOVH);
 
 	return (
 		<>
-			{/* {console.log(suggested)} */}
 			<section className="card-holder">
 				{suggested.map((song) => (
 					<section className="card" key={song.id}>
@@ -40,11 +34,11 @@ const Suggested = () => {
 							</section>
 						</section>
 						<section className="button">
-							<button onClick={() => readLyrics(song.artist.name, song.title)}>
+							{/* <button onClick={() => readLyrics(song.artist.name, song.title)}>
+							</button> */}
 								<Link to={`/lyrics/${song.artist.name}/${song.title}`}>
 									Read Lyrics &raquo;
 								</Link>
-							</button>
 						</section>
 					</section>
 				))}

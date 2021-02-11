@@ -140,12 +140,12 @@ nav {
 .button {
 	padding: 1rem 0 2rem;
 }
-.button button {
+.button a {
 	background-color: rgb(243, 54, 92);
 	border-radius: 10px;
 	padding: 0.5rem 1rem;
-	cursor: pointer;
 	color: #fff;
+	cursor: pointer;
 	box-shadow: 0 0 10px #777;
 	border: 2px solid #fff;
 	outline: none;
@@ -190,9 +190,14 @@ audio:active {
 .footer p {
 	text-align: center;
 }
-
 /* Footer Ends */
 
+/* Error Begins */
+.error {
+	color: #f00;
+	margin-bottom: 2rem;
+}
+/* Error Ends */
 /* Media Query Begins */
 @media screen and (max-width: 768px) {
 	#wrapper {

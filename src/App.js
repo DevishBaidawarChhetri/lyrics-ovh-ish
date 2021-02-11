@@ -6,10 +6,12 @@ import Suggested from "./components/Suggested";
 import ReadLyrics from "./components/ReadLyrics";
 import Footer from "./components/Footer";
 import Default from "./components/Default";
+import ScrollTop from "./ScrollTop";
 
 const App = () => {
 	return (
 		<section id="wrapper">
+			<ScrollTop />
 			<Nav />
 			<Switch>
 				<Route exact path="/" component={Suggested} />
