@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { loadLyrics } from "../actions/lyrircsAction";
+import Loading from "./Loading";
 
 const ReadLyrics = () => {
 	const { artist, song } = useParams();
-  
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(loadLyrics(artist, song));
@@ -19,7 +20,9 @@ const ReadLyrics = () => {
 					{artist} - {song}
 				</strong>
 			</h1>
-			{readLyrics.length > 0 ? (
+			{readLyrics.length == 0 ? (
+				<Loading />
+			) : Object.keys(readLyrics).length !== 0 ? (
 				<pre>{readLyrics}</pre>
 			) : (
 				<p className="error">

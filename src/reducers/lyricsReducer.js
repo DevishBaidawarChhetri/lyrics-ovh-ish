@@ -17,6 +17,16 @@ const lyricsReducer = (state = defaultState, action) => {
 				...state,
 				readLyrics: action.payload.readLyrics,
 			};
+		case "FETCH_SEARCH":
+			return {
+				...state,
+				searched: action.payload.searched,
+			};
+		case "CLEAR_SEARCHED":
+			return {
+				...state,
+				searched: [],
+			};
 		default:
 			return { ...state };
 	}

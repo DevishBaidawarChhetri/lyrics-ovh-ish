@@ -61,6 +61,7 @@ nav {
 	grid-column-gap: 3rem;
 	grid-row-gap: 3rem;
 	padding: 0 5rem;
+	margin-bottom: 3rem;
 }
 .card {
 	min-height: 30vh;
@@ -196,6 +197,7 @@ audio:active {
 .error {
 	color: #f00;
 	margin-bottom: 2rem;
+	text-align: center;
 }
 /* Error Ends */
 /* Media Query Begins */
