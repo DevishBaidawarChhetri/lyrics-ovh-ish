@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Default from "./components/Default";
+import GlobalStyles from "./components/GlobalStyles";
+import Nav from "./components/Nav";
+import ReadLyrics from "./components/ReadLyrics";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<div className="App">
+			<GlobalStyles />
+			<Router>
+				<Nav />
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/lyrics/:artist/:song" component={ReadLyrics} />
+					<Route component={Default} />
+				</Switch>
+				<Footer />
+			</Router>
+		</div>
+	);
+};
 
 export default App;
