@@ -2,7 +2,6 @@ const base_url = "https://api.lyrics.ovh";
 
 const artists = [
 	"3 doors down",
-	"AC-DC",
 	"Metallica",
 	"Bullet For My Valentine",
 	"Blink 182",
@@ -35,5 +34,5 @@ const artist = artists[random];
 
 export const suggestedURL = () => `${base_url}/suggest/${artist}`;
 export const viewLyricsURL = (artist, song) =>
-	`${base_url}/v1/${artist}/${song}/`;
+	`${base_url}/v1/${artist}/${song}`;
 export const searchURL = (query) => `${base_url}/suggest/${query}`;

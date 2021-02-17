@@ -4,12 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Song from "../components/Song";
 import { loadSuggested } from "../actions/lyricsAction";
+import { toast } from "react-toastify";
 
 const Home = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(loadSuggested());
+		// toast.success(
+		// 	"Hello there, to view `ARTIST` and their `SONGS`, please hover your mouse pointer or click on album picture."
+		// );
 	}, [dispatch]);
 
 	const { suggested, searched } = useSelector((state) => state.lyricsOVH);
@@ -58,7 +62,7 @@ const Home = () => {
 const SongLists = styled(motion.section)`
 	padding: 0 5rem 5rem;
 	h2 {
-		padding: 0 3.5rem 0.5rem;
+		padding: 0 3.5rem 2rem;
 		color: #5e8d90;
 	}
 	@media screen and (max-width: 768px) {

@@ -16,6 +16,13 @@ const GlobalStyles = createGlobalStyle`
     color: #000;
     text-decoration: none;
   }
+  .Toastify__toast--success {
+    background: #56c5ae;
+  }
+  .Toastify__progress-bar {
+    opacity: 0.25;
+    height: 3px;
+  }
 `;
 
 export default GlobalStyles;

@@ -6,6 +6,8 @@ import Nav from "./components/Nav";
 import ReadLyrics from "./components/ReadLyrics";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
 	return (
@@ -15,10 +17,15 @@ const App = () => {
 				<Nav />
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/lyrics/:artist/:song" component={ReadLyrics} />
+					<Route
+						exact
+						path="/lyrics/:artist_name/:song_title/:id"
+						component={ReadLyrics}
+					/>
 					<Route component={Default} />
 				</Switch>
 				<Footer />
+				<ToastContainer position="bottom-right" />
 			</Router>
 		</div>
 	);

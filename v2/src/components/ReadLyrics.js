@@ -1,36 +1,62 @@
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import styled from "styled-components";
-import { loadLyrics } from "../actions/lyricsAction";
+import { loadLyrics, searchSong } from "../actions/lyricsAction";
 import Loading from "./Loading";
 
-const ReadLyrics = (props) => {
-	const { artist, song } = useParams();
-	const { artist_picture, song_title, song_preview } = props.location.state;
-
+const ReadLyrics = () => {
 	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(loadLyrics(artist, song));
-	}, [artist, song]);
+	const { id, artist_name, song_title } = useParams();
+	const u_id = parseInt(id);
 
-	const readLyrics = useSelector((state) => state.lyricsOVH.readLyrics);
+	// Search Song
+	useEffect(() => {
+		dispatch(searchSong(`${artist_name} ${song_title}`));
+	}, [artist_name, song_title]);
+
+	// Select Song
+	const result = useSelector((state) => state.lyricsOVH.searched);
+	const obj = result.find((song) => song.id == u_id);
+	console.log(obj.artist.picture);
+
+	// const player_song_preview = obj.preview;
+	// const player_artist_pic = obj.artist.picture;
+	// const player_artist_name = obj.artist.name;
+
+	// Fetch Lyrics
+	useEffect(() => {
+		dispatch(loadLyrics(artist_name, song_title));
+		// toast.success(`You're now reading: "${song_title}" by "${artist_name}".`);
+	}, [artist_name, song_title]);
+
+	const readLyrics = useSelector(
+		(state) => state.lyricsOVH.readLyrics
+	).toString();
+	const formatedData = readLyrics.replace(/(\r\n|\n|\r)/gm, "<br/>");
+
 	return (
 		<StyledLyrics>
 			<h1>
 				<strong>
-					{artist} - {song}
+					{artist_name} - {song_title}
 				</strong>
 			</h1>
 			{readLyrics.length == 0 ? (
 				<Loading />
 			) : Object.keys(readLyrics).length !== 0 ? (
 				<>
-					<pre>{readLyrics}</pre>
+					{/* <pre>{readLyrics}</pre> */}
+					<div className="lyrics-div">
+						{formatedData.split("<br/>").map((item, index) => (
+							<p key={index}>{item}</p>
+						))}
+					</div>
 					<div className="player">
-						<img width="150" src={artist_picture} alt={song_title} />
-						<audio src={song_preview} controls />
+						<img width="150" src={obj.artist.picture} alt="artist name" />
+						<audio src={obj.preview} controls />
 					</div>
 				</>
 			) : (
@@ -52,10 +78,13 @@ const StyledLyrics = styled(motion.section)`
 		text-decoration: underline;
 		padding: 0 2rem;
 	}
-	pre {
+	.lyrics-div {
 		font-family: "Roboto", sans-serif !important;
 		margin-bottom: 3rem;
 		padding: 0 2rem;
+		p {
+			margin-bottom: 1rem;
+		}
 	}
 	.player {
 		position: sticky;

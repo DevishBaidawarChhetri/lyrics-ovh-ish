@@ -30,20 +30,7 @@ const Song = ({
 					</section>
 				</section>
 				<section className="button">
-					<Link
-						to={{
-							pathname: `/lyrics/${artist_name}/${song_title}`,
-							state: {
-								id,
-								artist_name,
-								album_cover_pic,
-								artist_picture,
-								album_title,
-								song_title,
-								song_preview,
-							},
-						}}
-					>
+					<Link to={`/lyrics/${artist_name}/${song_title}/${id}`}>
 						Read Lyrics &raquo;
 					</Link>
 				</section>
