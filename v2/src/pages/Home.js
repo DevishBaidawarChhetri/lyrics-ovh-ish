@@ -11,9 +11,9 @@ const Home = () => {
 
 	useEffect(() => {
 		dispatch(loadSuggested());
-		// toast.success(
-		// 	"Hello there, to view `ARTIST` and their `SONGS`, please hover your mouse pointer or click on album picture."
-		// );
+		toast.success(
+			"Hello there, to view `ARTIST` and their `SONGS`, please hover your mouse pointer or click on album picture."
+		);
 	}, [dispatch]);
 
 	const { suggested, searched } = useSelector((state) => state.lyricsOVH);
@@ -28,8 +28,8 @@ const Home = () => {
 								key={song.id}
 								id={song.id}
 								artist_name={song.artist.name}
-								album_cover_pic={song.album.cover_xl}
-								artist_picture={song.artist.picture_xl}
+								album_cover_pic={song.album.cover}
+								artist_picture={song.artist.picture}
 								album_title={song.album.title}
 								song_title={song.title}
 								song_preview={song.preview}

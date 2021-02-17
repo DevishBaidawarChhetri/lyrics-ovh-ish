@@ -20,16 +20,11 @@ const ReadLyrics = () => {
 	// Select Song
 	const result = useSelector((state) => state.lyricsOVH.searched);
 	const obj = result.find((song) => song.id == u_id);
-	console.log(obj.artist.picture);
-
-	// const player_song_preview = obj.preview;
-	// const player_artist_pic = obj.artist.picture;
-	// const player_artist_name = obj.artist.name;
 
 	// Fetch Lyrics
 	useEffect(() => {
 		dispatch(loadLyrics(artist_name, song_title));
-		// toast.success(`You're now reading: "${song_title}" by "${artist_name}".`);
+		toast.success(`You're now reading: "${song_title}" by "${artist_name}".`);
 	}, [artist_name, song_title]);
 
 	const readLyrics = useSelector(
@@ -37,7 +32,7 @@ const ReadLyrics = () => {
 	).toString();
 	const formatedData = readLyrics.replace(/(\r\n|\n|\r)/gm, "<br/>");
 
-	return (
+	return obj !== undefined ? (
 		<StyledLyrics>
 			<h1>
 				<strong>
@@ -66,6 +61,8 @@ const ReadLyrics = () => {
 				</p>
 			)}
 		</StyledLyrics>
+	) : (
+		""
 	);
 };
 
