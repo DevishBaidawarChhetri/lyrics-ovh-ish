@@ -31,28 +31,51 @@ const ReadLyrics = () => {
 		(state) => state.lyricsOVH.readLyrics
 	).toString();
 	const formatedData = readLyrics.replace(/(\r\n|\n|\r)/gm, "<br/>");
+	const container = {
+		hidden: { x: 100, opacity: 0 },
+		show: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				delay: 1,
+			},
+		},
+	};
+
+	const item = {
+		hidden: { x: -100, opacity: 0 },
+		show: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				delay: 2,
+			},
+		},
+	};
 
 	return obj !== undefined ? (
 		<StyledLyrics>
-			<h1>
+			<motion.h1 variants={container} initial="hidden" animate="show">
 				<strong>
 					{artist_name} - {song_title}
 				</strong>
-			</h1>
+			</motion.h1>
 			{readLyrics.length == 0 ? (
 				<Loading />
 			) : Object.keys(readLyrics).length !== 0 ? (
 				<>
 					{/* <pre>{readLyrics}</pre> */}
-					<div className="lyrics-div">
-						{formatedData.split("<br/>").map((item, index) => (
-							<p key={index}>{item}</p>
-						))}
-					</div>
-					<div className="player">
-						<img width="150" src={obj.artist.picture} alt="artist name" />
-						<audio src={obj.preview} controls />
-					</div>
+					<motion.div variants={item} initial="hidden" animate="show">
+						<div className="lyrics-div">
+							{formatedData.split("<br/>").map((item, index) => (
+								<p key={index}>{item}</p>
+							))}
+						</div>
+						<div className="player">
+							<img width="150" src={obj.artist.picture} alt="artist name" />
+							<audio src={obj.preview} controls />
+						</div>
+					</motion.div>
 				</>
 			) : (
 				<p className="error">

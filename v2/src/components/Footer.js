@@ -10,6 +10,15 @@ const Footer = () => {
 				Reserved.
 			</p>
 			<p>
+				Made with{" "}
+				<span>
+					<a style={{ color: "#e25555" }} href="https://www.devish.com.np">
+						&hearts;
+					</a>
+				</span>{" "}
+				in React.
+			</p>
+			<p>
 				<strong>Powered by:</strong>
 			</p>
 			<img src={logo} alt="Lyrics OVH" />

@@ -16,20 +16,40 @@ const Home = () => {
 		);
 	}, [dispatch]);
 
+	const container = {
+		hidden: { opacity: 1, scale: 0 },
+		visible: {
+			opacity: 1,
+			scale: 1,
+			transition: {
+				delayChildren: 1.5,
+				staggerChildren: 1,
+			},
+		},
+	};
+
+	const item = {
+		hidden: { y: 50, opacity: 0 },
+		visible: {
+			y: 0,
+			opacity: 1,
+		},
+	};
+
 	const { suggested, searched } = useSelector((state) => state.lyricsOVH);
 	return (
-		<SongLists>
+		<SongLists variants={container} initial="hidden" animate="visible">
 			{Object.keys(searched).length ? (
 				<>
 					<h2>Possible Results</h2>
-					<Songs>
+					<Songs variants={item}>
 						{searched.map((song) => (
 							<Song
 								key={song.id}
 								id={song.id}
 								artist_name={song.artist.name}
-								album_cover_pic={song.album.cover}
-								artist_picture={song.artist.picture}
+								album_cover_pic={song.album.cover_xl}
+								artist_picture={song.artist.picture_xl}
 								album_title={song.album.title}
 								song_title={song.title}
 								song_preview={song.preview}
@@ -41,7 +61,7 @@ const Home = () => {
 				""
 			)}
 			<h2>Suggested Songs</h2>
-			<Songs>
+			<Songs variants={item}>
 				{suggested.map((song) => (
 					<Song
 						key={song.id}

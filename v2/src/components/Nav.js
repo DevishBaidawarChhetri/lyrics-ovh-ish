@@ -30,14 +30,38 @@ const Nav = () => {
 			<StyledNav>
 				<StyledLogo onClick={clearSearched}>
 					<Link to="/">
-						<img src={logo} alt="logo" />
-						<h1>Lyrics Ovh</h1>
+						<motion.img
+							initial={{ scale: 0, opacity: 0 }}
+							animate={{ scale: 1, opacity: 1 }}
+							transition={{
+								delay: 1.5,
+							}}
+							src={logo}
+							alt="logo"
+						/>
+						<motion.h1
+							initial={{ scale: 0 }}
+							animate={{ rotate: 360, scale: 1 }}
+							transition={{
+								type: "spring",
+								stiffness: 100,
+								damping: 50,
+							}}
+						>
+							Lyrics Ovh
+						</motion.h1>
 					</Link>
 				</StyledLogo>
-				<StyledSearch>
+				<StyledSearch
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{
+						delay: 1.2,
+					}}
+				>
 					<input
 						type="text"
-						placeholder="Eg: Metallica"
+						placeholder="Eg: Kings Of Leon - Sex on Fire"
 						onChange={handleInput}
 						value={textInput}
 						required
